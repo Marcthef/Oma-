@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hallo Oma</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="text" onclick="changeText()">Hallo Oma</div>
+    <script src="script.js"></script>
+</body>
+</html>
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+}
+
+#text {
+    font-size: 2em;
+    cursor: pointer;
+    padding: 20px;
+    background-color: white;
+    border: 2px solid black;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.disappear {
+    transform: scale(1.5) rotate(30deg);
+    opacity: 0;
+}
+function changeText() {
+    let textElement = document.getElementById("text");
+
+    // Ajoute l'effet de disparition
+    textElement.classList.add("disappear");
+
+    // Attendre avant d'afficher le nouveau texte
+    setTimeout(() => {
+        textElement.textContent = "Wie geht's ?";
+        textElement.classList.remove("disappear"); // Réinitialise l'effet
+    }, 500);
+}
+
+
+
